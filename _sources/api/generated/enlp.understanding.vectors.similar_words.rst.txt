@@ -1,0 +1,12 @@
+enlp.understanding.vectors.similar\_words
+=========================================
+
+.. currentmodule:: enlp.understanding.vectors
+
+.. autofunction:: similar_words
+
+.. include:: backreferences/enlp.understanding.vectors.similar_words.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

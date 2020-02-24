@@ -1,0 +1,12 @@
+enlp.understanding.topics.bow\_topic\_modelling
+===============================================
+
+.. currentmodule:: enlp.understanding.topics
+
+.. autofunction:: bow_topic_modelling
+
+.. include:: backreferences/enlp.understanding.topics.bow_topic_modelling.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

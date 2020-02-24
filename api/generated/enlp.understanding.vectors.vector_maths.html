@@ -1,0 +1,328 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>enlp.understanding.vectors.vector_maths &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="enlp.understanding.vectors.save_vectors" href="enlp.understanding.vectors.save_vectors.html" />
+    <link rel="prev" title="enlp.understanding.vectors.similar_words" href="enlp.understanding.vectors.similar_words.html" />
+    
+    <script src="../../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">eNLP gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">eNLP code documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#processing">Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#understanding">Understanding</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../understanding.html">Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../understanding.html#linguistics">Linguistics</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../understanding.html#word-vectors">Word Vectors</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="enlp.understanding.vectors.word_vectors.html">enlp.understanding.vectors.word_vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enlp.understanding.vectors.similar_words.html">enlp.understanding.vectors.similar_words</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">enlp.understanding.vectors.vector_maths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enlp.understanding.vectors.save_vectors.html">enlp.understanding.vectors.save_vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enlp.understanding.vectors.load_vectors.html">enlp.understanding.vectors.load_vectors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../understanding.html#topic-modelling">Topic Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../understanding.html#sentiment-analysis">Sentiment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../understanding.html#keyword-extraction">Keyword Extraction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#making-spacy-language-models">Making Spacy Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">eNLP code documentation</a> &raquo;</li>
+        
+          <li><a href="../understanding.html">Distributions</a> &raquo;</li>
+        
+      <li>enlp.understanding.vectors.vector_maths</li>
+    
+    
+    <li class="source-link">
+        
+            
+                
+                
+                <a href="https://github.com/Statoil/pylops/issues/new?title=Suggested%20improvement%20for%20api/generated/enlp.understanding.vectors.vector_maths&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="enlp-understanding-vectors-vector-maths">
+<h1>enlp.understanding.vectors.vector_maths<a class="headerlink" href="#enlp-understanding-vectors-vector-maths" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="enlp.understanding.vectors.vector_maths">
+<code class="sig-prename descclassname">enlp.understanding.vectors.</code><code class="sig-name descname">vector_maths</code><span class="sig-paren">(</span><em class="sig-param">wvs</em>, <em class="sig-param">pwords=None</em>, <em class="sig-param">nwords=None</em>, <em class="sig-param">n=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/enlp/understanding/vectors.html#vector_maths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#enlp.understanding.vectors.vector_maths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform word vector maths</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>wvs</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gensim.model</span></code></span></dt><dd><p>Trained word vector model</p>
+</dd>
+<dt><strong>pwords</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>list of positive words</p>
+</dd>
+<dt><strong>nwords</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>list of negative words</p>
+</dd>
+<dt><strong>n</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Number of close words to return.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>most_similar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>list of most similar words and their distance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="enlp.understanding.vectors.save_vectors.html" class="btn btn-neutral float-right" title="enlp.understanding.vectors.save_vectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="enlp.understanding.vectors.similar_words.html" class="btn btn-neutral float-left" title="enlp.understanding.vectors.similar_words" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

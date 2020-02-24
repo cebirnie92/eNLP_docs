@@ -1,0 +1,12 @@
+enlp.language\_models.save\_spacy\_model
+========================================
+
+.. currentmodule:: enlp.language_models
+
+.. autofunction:: save_spacy_model
+
+.. include:: backreferences/enlp.language_models.save_spacy_model.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

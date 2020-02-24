@@ -1,0 +1,12 @@
+enlp.understanding.linguistic.pos\_tag
+======================================
+
+.. currentmodule:: enlp.understanding.linguistic
+
+.. autofunction:: pos_tag
+
+.. include:: backreferences/enlp.understanding.linguistic.pos_tag.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

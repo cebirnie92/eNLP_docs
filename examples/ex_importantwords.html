@@ -1,0 +1,392 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>TF-IDF Important Words &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Keyphrase Extraction (English)" href="ex_keyphrases.html" />
+    <link rel="prev" title="Removing Stopwords" href="ex_get_stopwords.html" />
+    
+    <script src="../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">eNLP gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ex_customlangmod.html">Custom Spacy Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_get_stopwords.html">Removing Stopwords</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TF-IDF Important Words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_keyphrases.html">Keyphrase Extraction (English)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_nlp_pipeline.html">NLP Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_topicmodelling.html">Topic Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_visualise_distribution.html">Visualising Word Counts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_wordvectoranalysis.html">Word Vector Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ex_wordvectorcreation.html">Word Vector Creation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">eNLP code documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">eNLP gallery</a> &raquo;</li>
+        
+      <li>TF-IDF Important Words</li>
+    
+    
+    <li class="source-link">
+        
+            
+                
+                
+                
+                    
+                
+                <a href="https://github.com/Statoil/pylops/edit/master/docs/../../examples/ex_importantwords.py"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-ex-importantwords-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="tf-idf-important-words">
+<span id="sphx-glr-examples-ex-importantwords-py"></span><h1>TF-IDF Important Words<a class="headerlink" href="#tf-idf-important-words" title="Permalink to this headline">¶</a></h1>
+<p>The following example compute tf-idf of words in a document to determine the most important words.</p>
+<p>NOTE: This is an example to show how to run the procedure however due to the small dataset used
+the results are likely to be non-sensical.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">enlp.understanding.distributions</span> <span class="k">as</span> <span class="nn">dists</span>
+<span class="kn">import</span> <span class="nn">enlp.processing.stdtools</span> <span class="k">as</span> <span class="nn">stdt</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+</pre></div>
+</div>
+<p>Load example text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example_data/en_historynlp.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="View documentation for builtins.str"><span class="n">text</span></a><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Preprocess text - for this example we have a very small corpus to allow the documentation
+to build therefore we will split the single document into paragraphs for processing to
+imitate multiple document input and we will also remove stopwords as the text is too small
+for the tf-idf computation to handle them. For normal procedures you should NOT remove stopwords
+prior to computing tf-idf scores.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split text into paragraphs to imitate documents</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str.split" title="View documentation for builtins.str.split"><span class="n">text</span><span class="o">.</span><span class="n">split</span></a><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># Remove \n and replace with space</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a><span class="p">]</span>
+
+<span class="c1"># Because example text is small, remove stopwords as they&#39;ll influence tf-idf scores</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_md&#39;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">stopwords</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">stops_nb</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">stops_en</span></a> <span class="o">=</span> <span class="n">stdt</span><span class="o">.</span><span class="n">get_stopwords</span><span class="p">()</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">stdt</span><span class="o">.</span><span class="n">rm_stopwords</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">stops_en</span></a><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a><span class="p">]</span>
+</pre></div>
+</div>
+<p>Compute tf-idf scores and determine most important words across full corpus</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">compute_tfidf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">paragraphs</span></a><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">dists</span><span class="o">.</span><span class="n">important_words_per_corpus</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>translation     0.106192
+language        0.104992
+machine         0.097584
+systems         0.084293
+learning        0.073622
+natural         0.073411
+data            0.072888
+processing      0.069336
+annotated       0.060897
+research        0.057194
+models          0.054165
+intelligence    0.047994
+turing          0.047994
+eliza           0.047706
+developed       0.046281
+statistical     0.046008
+results         0.043832
+algorithms      0.041982
+real            0.040207
+written         0.039370
+dtype: float64
+</pre></div>
+</div>
+<p>Determine most important words per document (or for this example, per paragraph)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">iw_p_d</span></a> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">important_words_per_doc</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+<span class="k">for</span> <a href="https://docs.python.org/3/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">iw</span></a> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">iw_p_d</span></a><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Paragraph </span><span class="si">%i</span><span class="s1"> important words: &#39;</span> <span class="o">%</span><span class="nb">int</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="View documentation for builtins.int"><span class="n">i</span></a><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="View documentation for builtins.list"><span class="n">iw</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Paragraph 1 important words:
+[(&#39;intelligence&#39;, 0.3839490826316704), (&#39;turing&#39;, 0.3839490826316704), (&#39;1950&#39;, 0.1919745413158352), (&#39;published&#39;, 0.1919745413158352), (&#39;criterion&#39;, 0.1919745413158352)]
+Paragraph 2 important words:
+[(&#39;translation&#39;, 0.4934936045135249), (&#39;machine&#39;, 0.3461480988917147), (&#39;research&#39;, 0.17307404944585736), (&#39;automatic&#39;, 0.13647639974751505), (&#39;report&#39;, 0.13647639974751505)]
+Paragraph 3 important words:
+[(&#39;eliza&#39;, 0.38165016476739877), (&#39;human&#39;, 0.2544334431782659), (&#39;head&#39;, 0.2544334431782659), (&#39;hurts&#39;, 0.2544334431782659), (&#39;restricted&#39;, 0.2544334431782659)]
+Paragraph 4 important words:
+[(&#39;lehnert&#39;, 0.3022659596085749), (&#39;1978&#39;, 0.3022659596085749), (&#39;politics&#39;, 0.15113297980428744), (&#39;conceptual&#39;, 0.15113297980428744), (&#39;units&#39;, 0.15113297980428744)]
+Paragraph 5 important words:
+[(&#39;models&#39;, 0.3292843790366923), (&#39;language&#39;, 0.2989594688746548), (&#39;processing&#39;, 0.24913289072887895), (&#39;rules&#39;, 0.2357425166457776), (&#39;input&#39;, 0.19757062742201537)]
+Paragraph 6 important words:
+[(&#39;systems&#39;, 0.3483663777692584), (&#39;corpora&#39;, 0.24826980544342042), (&#39;result&#39;, 0.24826980544342042), (&#39;translation&#39;, 0.17954688342718525), (&#39;developed&#39;, 0.17954688342718525)]
+Paragraph 7 important words:
+[(&#39;annotated&#39;, 0.4871730917735322), (&#39;data&#39;, 0.3089069609481648), (&#39;supervised&#39;, 0.2435865458867661), (&#39;non&#39;, 0.2435865458867661), (&#39;algorithms&#39;, 0.2041445361115003)]
+Paragraph 8 important words:
+[(&#39;language&#39;, 0.25791453933888686), (&#39;neural&#39;, 0.24405216992987602), (&#39;deep&#39;, 0.24405216992987602), (&#39;machine&#39;, 0.2063316314711095), (&#39;learning&#39;, 0.2063316314711095)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.289 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-ex-importantwords-py">
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/0e01f699223c2df14b4b306a2a36d0c7/ex_importantwords.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">ex_importantwords.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/ce3c557f11215206c0087435bd9b4c8c/ex_importantwords.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">ex_importantwords.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ex_keyphrases.html" class="btn btn-neutral float-right" title="Keyphrase Extraction (English)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ex_get_stopwords.html" class="btn btn-neutral float-left" title="Removing Stopwords" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

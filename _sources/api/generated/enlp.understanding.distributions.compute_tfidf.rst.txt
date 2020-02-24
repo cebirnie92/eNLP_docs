@@ -1,0 +1,12 @@
+enlp.understanding.distributions.compute\_tfidf
+===============================================
+
+.. currentmodule:: enlp.understanding.distributions
+
+.. autofunction:: compute_tfidf
+
+.. include:: backreferences/enlp.understanding.distributions.compute_tfidf.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

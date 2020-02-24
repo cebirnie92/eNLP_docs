@@ -1,0 +1,367 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>enlp.understanding.vectors &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    
+    <script src="../../../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">eNLP gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">eNLP code documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>enlp.understanding.vectors</li>
+    
+    
+    <li class="source-link">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for enlp.understanding.vectors</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Contains functions for computing &amp; analysing word and document vectors</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+
+
+<div class="viewcode-block" id="word_vectors"><a class="viewcode-back" href="../../../api/generated/enlp.understanding.vectors.word_vectors.html#enlp.understanding.vectors.word_vectors">[docs]</a><span class="k">def</span> <span class="nf">word_vectors</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">sg</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sz</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">wnd</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Compute word vectors from corpus</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    docs : :obj:`list`</span>
+<span class="sd">        list of texts (documents)</span>
+<span class="sd">    sg  : :obj:`int`</span>
+<span class="sd">        Training algorithm: 1 for skip-gram; otherwise CBOW.</span>
+<span class="sd">    mc  : :obj:`int`</span>
+<span class="sd">        Ignores all words with total frequency lower than this.</span>
+<span class="sd">    sz  : :obj:`int`</span>
+<span class="sd">        Dimensionality of the word vectors.</span>
+<span class="sd">    wnd  : :obj:`int`</span>
+<span class="sd">        Maximum distance between the current and predicted word within a sentence.</span>
+<span class="sd">    epochs  : :obj:`int`</span>
+<span class="sd">        number of epochs for training</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        wvs : :obj:`gensim.model`</span>
+<span class="sd">            Trained word vector model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tokenised_sents</span> <span class="o">=</span> <span class="p">[</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+
+    <span class="n">wvs</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">tokenised_sents</span><span class="p">,</span> <span class="n">sg</span><span class="o">=</span><span class="n">sg</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="n">mc</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">sz</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">wnd</span><span class="p">)</span>
+    <span class="n">wvs</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">tokenised_sents</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">tokenised_sents</span><span class="p">),</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wvs</span></div>
+
+
+<div class="viewcode-block" id="similar_words"><a class="viewcode-back" href="../../../api/generated/enlp.understanding.vectors.similar_words.html#enlp.understanding.vectors.similar_words">[docs]</a><span class="k">def</span> <span class="nf">similar_words</span><span class="p">(</span><span class="n">wvs</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Find similar words to word</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    word : :obj:`str`</span>
+<span class="sd">        word to find most similar vectors, note it must be within vocabulary</span>
+<span class="sd">    wvs : :obj:`gensim.model`</span>
+<span class="sd">        Trained word vector model</span>
+<span class="sd">    n  : :obj:`int`</span>
+<span class="sd">        Number of similar words to return.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        most_similar : :obj:`list`</span>
+<span class="sd">            list of most similar words and their distance</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">most_similar</span> <span class="o">=</span> <span class="n">wvs</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">most_similar</span></div>
+
+
+<div class="viewcode-block" id="vector_maths"><a class="viewcode-back" href="../../../api/generated/enlp.understanding.vectors.vector_maths.html#enlp.understanding.vectors.vector_maths">[docs]</a><span class="k">def</span> <span class="nf">vector_maths</span><span class="p">(</span><span class="n">wvs</span><span class="p">,</span> <span class="n">pwords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nwords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Perform word vector maths</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wvs : :obj:`gensim.model`</span>
+<span class="sd">        Trained word vector model</span>
+<span class="sd">    pwords : :obj:`list`</span>
+<span class="sd">        list of positive words</span>
+<span class="sd">    nwords : :obj:`list`</span>
+<span class="sd">        list of negative words</span>
+<span class="sd">    n  : :obj:`int`</span>
+<span class="sd">        Number of close words to return.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        most_similar : :obj:`list`</span>
+<span class="sd">            list of most similar words and their distance</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">most_similar</span> <span class="o">=</span> <span class="n">wvs</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span> <span class="o">=</span> <span class="n">pwords</span><span class="p">,</span>
+                                       <span class="n">negative</span> <span class="o">=</span> <span class="n">nwords</span><span class="p">,</span>
+                                       <span class="n">topn</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">most_similar</span></div>
+
+
+<div class="viewcode-block" id="save_vectors"><a class="viewcode-back" href="../../../api/generated/enlp.understanding.vectors.save_vectors.html#enlp.understanding.vectors.save_vectors">[docs]</a><span class="k">def</span> <span class="nf">save_vectors</span><span class="p">(</span><span class="n">wvs</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Save word vector model to file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wvs : :obj:`gensim.model`</span>
+<span class="sd">        Trained word vector model</span>
+<span class="sd">    fname : :obj:`snr`</span>
+<span class="sd">        Filename</span>
+<span class="sd">    binary : :obj:`bool`</span>
+<span class="sd">        save as binary</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">wvs</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save_word2vec_format</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="n">binary</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="load_vectors"><a class="viewcode-back" href="../../../api/generated/enlp.understanding.vectors.load_vectors.html#enlp.understanding.vectors.load_vectors">[docs]</a><span class="k">def</span> <span class="nf">load_vectors</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load word vector model from file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname : :obj:`snr`</span>
+<span class="sd">        Filename</span>
+<span class="sd">    binary : :obj:`bool`</span>
+<span class="sd">        was model saved in binary format</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wvs : :obj:`gensim.model`</span>
+<span class="sd">        Word vector model</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">wvs</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="n">binary</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wvs</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

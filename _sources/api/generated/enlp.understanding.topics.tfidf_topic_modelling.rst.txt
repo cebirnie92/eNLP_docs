@@ -1,0 +1,12 @@
+enlp.understanding.topics.tfidf\_topic\_modelling
+=================================================
+
+.. currentmodule:: enlp.understanding.topics
+
+.. autofunction:: tfidf_topic_modelling
+
+.. include:: backreferences/enlp.understanding.topics.tfidf_topic_modelling.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

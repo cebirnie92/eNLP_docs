@@ -1,0 +1,12 @@
+enlp.understanding.vectors.word\_vectors
+========================================
+
+.. currentmodule:: enlp.understanding.vectors
+
+.. autofunction:: word_vectors
+
+.. include:: backreferences/enlp.understanding.vectors.word_vectors.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

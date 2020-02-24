@@ -1,0 +1,12 @@
+enlp.understanding.vectors.vector\_maths
+========================================
+
+.. currentmodule:: enlp.understanding.vectors
+
+.. autofunction:: vector_maths
+
+.. include:: backreferences/enlp.understanding.vectors.vector_maths.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

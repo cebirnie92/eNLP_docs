@@ -1,0 +1,12 @@
+enlp.processing.stdtools.rm\_punctuation
+========================================
+
+.. currentmodule:: enlp.processing.stdtools
+
+.. autofunction:: rm_punctuation
+
+.. include:: backreferences/enlp.processing.stdtools.rm_punctuation.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

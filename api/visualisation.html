@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>Distributions &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="enlp.visualisation.freq_distribution.wordcloud_plot" href="generated/enlp.visualisation.freq_distribution.wordcloud_plot.html" />
+    <link rel="prev" title="enlp.language_models.save_spacy_model" href="generated/enlp.language_models.save_spacy_model.html" />
+    
+    <script src="../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">eNLP gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">eNLP code documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#processing">Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#understanding">Understanding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#making-spacy-language-models">Making Spacy Language Models</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#visualisation">Visualisation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Distributions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.wordcloud_plot.html">enlp.visualisation.freq_distribution.wordcloud_plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.dist_plot_detailed.html">enlp.visualisation.freq_distribution.dist_plot_detailed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.dist_plot.html">enlp.visualisation.freq_distribution.dist_plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#word-vectors">Word Vectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.visualisation.word_vectors.similar_words.html">enlp.visualisation.word_vectors.similar_words</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">eNLP code documentation</a> &raquo;</li>
+        
+      <li>Distributions</li>
+    
+    
+    <li class="source-link">
+        
+            
+                <a href="https://github.com/Statoil/pylops/edit/master/docs/api/visualisation.rst"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<span class="target" id="module-enlp"><span id="vis"></span></span><div class="section" id="distributions">
+<h1>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.wordcloud_plot.html#enlp.visualisation.freq_distribution.wordcloud_plot" title="enlp.visualisation.freq_distribution.wordcloud_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wordcloud_plot</span></code></a>(token_list[, colormap, ax])</p></td>
+<td><p>Word cloud of tokens</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.dist_plot_detailed.html#enlp.visualisation.freq_distribution.dist_plot_detailed" title="enlp.visualisation.freq_distribution.dist_plot_detailed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dist_plot_detailed</span></code></a>(word_counts[, log, ax])</p></td>
+<td><p>Frequency count of tokens in a SMALL Corpus (&lt;50 unique tokens) with words on the x-axis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.visualisation.freq_distribution.dist_plot.html#enlp.visualisation.freq_distribution.dist_plot" title="enlp.visualisation.freq_distribution.dist_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dist_plot</span></code></a>(word_counts[, log, shade_singles, …])</p></td>
+<td><p>Frequency count of tokens</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="word-vectors">
+<h1>Word Vectors<a class="headerlink" href="#word-vectors" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.visualisation.word_vectors.similar_words.html#enlp.visualisation.word_vectors.similar_words" title="enlp.visualisation.word_vectors.similar_words"><code class="xref py py-obj docutils literal notranslate"><span class="pre">similar_words</span></code></a>(model, word[, n, ax])</p></td>
+<td><p>Create a plot of similar words based off their word vectors</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/enlp.visualisation.freq_distribution.wordcloud_plot.html" class="btn btn-neutral float-right" title="enlp.visualisation.freq_distribution.wordcloud_plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generated/enlp.language_models.save_spacy_model.html" class="btn btn-neutral float-left" title="enlp.language_models.save_spacy_model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

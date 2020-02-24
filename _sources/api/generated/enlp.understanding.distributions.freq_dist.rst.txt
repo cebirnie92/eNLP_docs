@@ -1,0 +1,12 @@
+enlp.understanding.distributions.freq\_dist
+===========================================
+
+.. currentmodule:: enlp.understanding.distributions
+
+.. autofunction:: freq_dist
+
+.. include:: backreferences/enlp.understanding.distributions.freq_dist.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

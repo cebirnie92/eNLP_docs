@@ -1,0 +1,12 @@
+enlp.processing.stdtools.spacy\_lemmatize
+=========================================
+
+.. currentmodule:: enlp.processing.stdtools
+
+.. autofunction:: spacy_lemmatize
+
+.. include:: backreferences/enlp.processing.stdtools.spacy_lemmatize.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

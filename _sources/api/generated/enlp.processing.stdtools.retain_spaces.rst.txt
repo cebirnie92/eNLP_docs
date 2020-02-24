@@ -1,0 +1,12 @@
+enlp.processing.stdtools.retain\_spaces
+=======================================
+
+.. currentmodule:: enlp.processing.stdtools
+
+.. autofunction:: retain_spaces
+
+.. include:: backreferences/enlp.processing.stdtools.retain_spaces.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

@@ -1,0 +1,12 @@
+enlp.language\_models.add\_vectors\_to\_langmod
+===============================================
+
+.. currentmodule:: enlp.language_models
+
+.. autofunction:: add_vectors_to_langmod
+
+.. include:: backreferences/enlp.language_models.add_vectors_to_langmod.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

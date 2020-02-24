@@ -1,0 +1,12 @@
+enlp.processing.stdtools.tokenise
+=================================
+
+.. currentmodule:: enlp.processing.stdtools
+
+.. autofunction:: tokenise
+
+.. include:: backreferences/enlp.processing.stdtools.tokenise.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

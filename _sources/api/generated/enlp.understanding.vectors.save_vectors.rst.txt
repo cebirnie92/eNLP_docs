@@ -1,0 +1,12 @@
+enlp.understanding.vectors.save\_vectors
+========================================
+
+.. currentmodule:: enlp.understanding.vectors
+
+.. autofunction:: save_vectors
+
+.. include:: backreferences/enlp.understanding.vectors.save_vectors.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

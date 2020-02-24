@@ -1,0 +1,430 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>Distributions &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="enlp.understanding.distributions.freq_dist" href="generated/enlp.understanding.distributions.freq_dist.html" />
+    <link rel="prev" title="enlp.pipeline.NLPPipeline" href="generated/enlp.pipeline.NLPPipeline.html" />
+    
+    <script src="../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">eNLP gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">eNLP code documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#processing">Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#understanding">Understanding</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Distributions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.distributions.freq_dist.html">enlp.understanding.distributions.freq_dist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.distributions.compute_tfidf.html">enlp.understanding.distributions.compute_tfidf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.distributions.important_words_per_corpus.html">enlp.understanding.distributions.important_words_per_corpus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.distributions.important_words_per_doc.html">enlp.understanding.distributions.important_words_per_doc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linguistics">Linguistics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.linguistic.pos_tag.html">enlp.understanding.linguistic.pos_tag</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#word-vectors">Word Vectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.vectors.word_vectors.html">enlp.understanding.vectors.word_vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.vectors.similar_words.html">enlp.understanding.vectors.similar_words</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.vectors.vector_maths.html">enlp.understanding.vectors.vector_maths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.vectors.save_vectors.html">enlp.understanding.vectors.save_vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.vectors.load_vectors.html">enlp.understanding.vectors.load_vectors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#topic-modelling">Topic Modelling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.topics.bow_topic_modelling.html">enlp.understanding.topics.bow_topic_modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.topics.tfidf_topic_modelling.html">enlp.understanding.topics.tfidf_topic_modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.topics.print_topic_words.html">enlp.understanding.topics.print_topic_words</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.topics.determine_topics.html">enlp.understanding.topics.determine_topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sentiment-analysis">Sentiment Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.sentiment.vader_sentiment_strength.html">enlp.understanding.sentiment.vader_sentiment_strength</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#keyword-extraction">Keyword Extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/enlp.understanding.keywords.keyphrase_list.html">enlp.understanding.keywords.keyphrase_list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#making-spacy-language-models">Making Spacy Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">eNLP code documentation</a> &raquo;</li>
+        
+      <li>Distributions</li>
+    
+    
+    <li class="source-link">
+        
+            
+                <a href="https://github.com/Statoil/pylops/edit/master/docs/api/understanding.rst"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<span class="target" id="module-enlp"><span id="understanding"></span></span><div class="section" id="distributions">
+<h1>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.distributions.freq_dist.html#enlp.understanding.distributions.freq_dist" title="enlp.understanding.distributions.freq_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">freq_dist</span></code></a>(tokens)</p></td>
+<td><p>Count frequency of tokens</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.distributions.compute_tfidf.html#enlp.understanding.distributions.compute_tfidf" title="enlp.understanding.distributions.compute_tfidf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_tfidf</span></code></a>(text_list[, doc_ids])</p></td>
+<td><p>Compute tfidf</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.distributions.important_words_per_corpus.html#enlp.understanding.distributions.important_words_per_corpus" title="enlp.understanding.distributions.important_words_per_corpus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">important_words_per_corpus</span></code></a>(scores[, n])</p></td>
+<td><p>Based on tfidf scores, return most important words per corpus</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.distributions.important_words_per_doc.html#enlp.understanding.distributions.important_words_per_doc" title="enlp.understanding.distributions.important_words_per_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">important_words_per_doc</span></code></a>(scores[, doc_id, n])</p></td>
+<td><p>Based on tfidf scores, return most important words per document</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="linguistics">
+<h1>Linguistics<a class="headerlink" href="#linguistics" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.linguistic.pos_tag.html#enlp.understanding.linguistic.pos_tag" title="enlp.understanding.linguistic.pos_tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pos_tag</span></code></a>(model, text)</p></td>
+<td><p>Return parts-of-speech for words in a peice of text.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="word-vectors">
+<h1>Word Vectors<a class="headerlink" href="#word-vectors" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.vectors.word_vectors.html#enlp.understanding.vectors.word_vectors" title="enlp.understanding.vectors.word_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">word_vectors</span></code></a>(docs[, sg, mc, sz, wnd, epochs])</p></td>
+<td><p>Compute word vectors from corpus</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.vectors.similar_words.html#enlp.understanding.vectors.similar_words" title="enlp.understanding.vectors.similar_words"><code class="xref py py-obj docutils literal notranslate"><span class="pre">similar_words</span></code></a>(wvs, word[, n])</p></td>
+<td><p>Find similar words to word</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.vectors.vector_maths.html#enlp.understanding.vectors.vector_maths" title="enlp.understanding.vectors.vector_maths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_maths</span></code></a>(wvs[, pwords, nwords, n])</p></td>
+<td><p>Perform word vector maths</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.vectors.save_vectors.html#enlp.understanding.vectors.save_vectors" title="enlp.understanding.vectors.save_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_vectors</span></code></a>(wvs, fname[, binary])</p></td>
+<td><p>Save word vector model to file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.vectors.load_vectors.html#enlp.understanding.vectors.load_vectors" title="enlp.understanding.vectors.load_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vectors</span></code></a>(fname[, binary])</p></td>
+<td><p>Load word vector model from file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="topic-modelling">
+<h1>Topic Modelling<a class="headerlink" href="#topic-modelling" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.topics.bow_topic_modelling.html#enlp.understanding.topics.bow_topic_modelling" title="enlp.understanding.topics.bow_topic_modelling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bow_topic_modelling</span></code></a>(docs[, no_topics])</p></td>
+<td><p>LDA Topic Modelling with BoW</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.topics.tfidf_topic_modelling.html#enlp.understanding.topics.tfidf_topic_modelling" title="enlp.understanding.topics.tfidf_topic_modelling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tfidf_topic_modelling</span></code></a>(docs[, no_topics])</p></td>
+<td><p>LDA Topic Modelling with TF-IDF</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.topics.print_topic_words.html#enlp.understanding.topics.print_topic_words" title="enlp.understanding.topics.print_topic_words"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_topic_words</span></code></a>(topic_model)</p></td>
+<td><p>Print words corresponding to topic modelling</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/enlp.understanding.topics.determine_topics.html#enlp.understanding.topics.determine_topics" title="enlp.understanding.topics.determine_topics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">determine_topics</span></code></a>(doc, topic_model, dictionary)</p></td>
+<td><p>determine document topics</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sentiment-analysis">
+<h1>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.sentiment.vader_sentiment_strength.html#enlp.understanding.sentiment.vader_sentiment_strength" title="enlp.understanding.sentiment.vader_sentiment_strength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vader_sentiment_strength</span></code></a>(textlist)</p></td>
+<td><p>Compute sentiment strength of ENGLISH texts</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="keyword-extraction">
+<h1>Keyword Extraction<a class="headerlink" href="#keyword-extraction" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/enlp.understanding.keywords.keyphrase_list.html#enlp.understanding.keywords.keyphrase_list" title="enlp.understanding.keywords.keyphrase_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keyphrase_list</span></code></a>(text[, language, stopwords, …])</p></td>
+<td><p>Extract keywords from a piece of text</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/enlp.understanding.distributions.freq_dist.html" class="btn btn-neutral float-right" title="enlp.understanding.distributions.freq_dist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="generated/enlp.pipeline.NLPPipeline.html" class="btn btn-neutral float-left" title="enlp.pipeline.NLPPipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

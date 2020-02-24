@@ -1,0 +1,12 @@
+enlp.understanding.sentiment.vader\_sentiment\_strength
+=======================================================
+
+.. currentmodule:: enlp.understanding.sentiment
+
+.. autofunction:: vader_sentiment_strength
+
+.. include:: backreferences/enlp.understanding.sentiment.vader_sentiment_strength.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

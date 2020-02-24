@@ -1,0 +1,12 @@
+enlp.understanding.distributions.important\_words\_per\_doc
+===========================================================
+
+.. currentmodule:: enlp.understanding.distributions
+
+.. autofunction:: important_words_per_doc
+
+.. include:: backreferences/enlp.understanding.distributions.important_words_per_doc.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

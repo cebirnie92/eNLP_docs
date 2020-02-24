@@ -1,0 +1,12 @@
+enlp.visualisation.freq\_distribution.wordcloud\_plot
+=====================================================
+
+.. currentmodule:: enlp.visualisation.freq_distribution
+
+.. autofunction:: wordcloud_plot
+
+.. include:: backreferences/enlp.visualisation.freq_distribution.wordcloud_plot.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

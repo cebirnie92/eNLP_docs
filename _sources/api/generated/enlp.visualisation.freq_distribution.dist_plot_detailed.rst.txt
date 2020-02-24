@@ -1,0 +1,12 @@
+enlp.visualisation.freq\_distribution.dist\_plot\_detailed
+==========================================================
+
+.. currentmodule:: enlp.visualisation.freq_distribution
+
+.. autofunction:: dist_plot_detailed
+
+.. include:: backreferences/enlp.visualisation.freq_distribution.dist_plot_detailed.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

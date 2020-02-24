@@ -1,0 +1,12 @@
+enlp.understanding.topics.determine\_topics
+===========================================
+
+.. currentmodule:: enlp.understanding.topics
+
+.. autofunction:: determine_topics
+
+.. include:: backreferences/enlp.understanding.topics.determine_topics.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

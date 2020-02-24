@@ -1,0 +1,47 @@
+enlp.pipeline.NLPPipeline
+=========================
+
+.. currentmodule:: enlp.pipeline
+
+.. autoclass:: NLPPipeline
+
+    .. rubric:: Methods
+
+    .. autosummary::
+    
+        ~NLPPipeline.__init__
+        ~NLPPipeline.nltk_stem_no
+        ~NLPPipeline.pos_tag
+        ~NLPPipeline.rm_punctuation
+        ~NLPPipeline.rm_stopwords
+        ~NLPPipeline.spacy_lemmatize
+        ~NLPPipeline.tokenise
+
+
+
+
+
+
+
+
+.. raw:: html
+
+     <div style='clear:both'></div>
+
+
+.. include:: backreferences/enlp.pipeline.NLPPipeline.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
+
+
+
+
+
+
+
+
+
+
+

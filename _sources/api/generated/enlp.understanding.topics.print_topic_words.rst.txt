@@ -1,0 +1,12 @@
+enlp.understanding.topics.print\_topic\_words
+=============================================
+
+.. currentmodule:: enlp.understanding.topics
+
+.. autofunction:: print_topic_words
+
+.. include:: backreferences/enlp.understanding.topics.print_topic_words.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

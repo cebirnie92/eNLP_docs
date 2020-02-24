@@ -1,0 +1,529 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>enlp.processing.stdtools &mdash; eNLP</title>
+    
+
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    
+    <script src="../../../_static/require.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> eNLP
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../design_decisions.html">Design decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">eNLP gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">eNLP code documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Getting involved:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html#code-guidelines">Code guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/equinor/eNLP/"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">eNLP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>enlp.processing.stdtools</li>
+    
+    
+    <li class="source-link">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for enlp.processing.stdtools</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Contains functions for natural language processing</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+
+
+<div class="viewcode-block" id="get_stopwords"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.get_stopwords.html#enlp.processing.stdtools.get_stopwords">[docs]</a><span class="k">def</span> <span class="nf">get_stopwords</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get list of Norwegian and English stopwords.</span>
+
+<span class="sd">    Get stopwords list from Spacy for Norwegian and English, returning each list separately as well as a combined list</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        stopwords : :obj:`list`</span>
+<span class="sd">            lists of combination of Norwegian and English stopwords, Norwegian stopwords, English stopwords</span>
+<span class="sd">        stops_nb : :obj:`list`</span>
+<span class="sd">            lists of Norwegian stopwords</span>
+<span class="sd">        stops_en : :obj:`list`</span>
+<span class="sd">            lists of English stopwords</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This has assumed both norwegian and english language models have been downloaded</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; stopwords_all, stopwords_norwegian, stopwords_english = get_stopwords()</span>
+<span class="sd">        &gt;&gt;&gt; print(stopwords[:5])</span>
+<span class="sd">        [&#39;therein&#39;, &#39;neither&#39;, &#39;indeed&#39;, &#39;whereby&#39;, &#39;yourself&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">spacy.lang.en.stop_words</span> <span class="k">import</span> <span class="n">STOP_WORDS</span>
+    <span class="n">stops_en</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">STOP_WORDS</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">spacy.lang.nb.stop_words</span> <span class="k">import</span> <span class="n">STOP_WORDS</span>
+    <span class="n">stops_nb</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">STOP_WORDS</span><span class="p">)</span>
+
+    <span class="n">stopwords</span> <span class="o">=</span> <span class="n">stops_en</span> <span class="o">+</span> <span class="n">stops_nb</span>
+    <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">stopwords</span><span class="p">,</span> <span class="n">stops_nb</span><span class="p">,</span> <span class="n">stops_en</span></div>
+
+
+<div class="viewcode-block" id="rm_stopwords"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.rm_stopwords.html#enlp.processing.stdtools.rm_stopwords">[docs]</a><span class="k">def</span> <span class="nf">rm_stopwords</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stopwords</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove stopwords from string.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : :obj:`spacy.lang`</span>
+<span class="sd">        SpaCy language model</span>
+<span class="sd">    text : :obj:`str`</span>
+<span class="sd">        text string on which to remove stopwords</span>
+<span class="sd">    stopwords : :obj:`list`</span>
+<span class="sd">       list of stopwords to remove</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        updated_text : :obj:`str`</span>
+<span class="sd">            Updated version of input string with stopwords (and possibly punctuation) removed</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    String output is to allow piping between functions to return words as a list use: tokenise(rm_stopwords(...))</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; import spacy</span>
+<span class="sd">        &gt;&gt;&gt; lang_mod = spacy.load(&#39;nb_dep_ud_sm&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &#39;Den raske brune reven hoppet over den late hunden.&#39;</span>
+<span class="sd">        &gt;&gt;&gt; stopwords_all, stopwords_norwegian, stopwords_english = get_stopwords()</span>
+<span class="sd">        &gt;&gt;&gt; print (rm_stopwords(lang_mod, text, stopwords_all))</span>
+<span class="sd">        raske brune reven hoppet late hunden.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Remove stopwords</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+
+    <span class="c1"># Join string back together</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+    <span class="c1"># If not removing punctuation that retain original spacing around punctuation, i.e. &#39;end.&#39; not &#39;end .&#39;</span>
+    <span class="c1">#updated_text = &#39; &#39;.join(updated_text.split())</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="n">retain_spaces</span><span class="p">(</span><span class="n">updated_text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">updated_text</span></div>
+
+
+<div class="viewcode-block" id="rm_punctuation"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.rm_punctuation.html#enlp.processing.stdtools.rm_punctuation">[docs]</a><span class="k">def</span> <span class="nf">rm_punctuation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return string free of punctuation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : :obj:`spacy.lang`</span>
+<span class="sd">        SpaCy language model</span>
+<span class="sd">    text : :obj:`str`</span>
+<span class="sd">        text string on which to remove stopwords</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        updated_text : :obj:`str`</span>
+<span class="sd">            Updated version of input string where punctuation has been removed</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    String output is to allow piping between functions to return words as a list use: to_list(remove_punctuation(...))</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; import spacy</span>
+<span class="sd">        &gt;&gt;&gt; lang_mod = spacy.load(&#39;en_core_web_md&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &#39;I better have passed that test - it is 90 percent of the class grade.&#39;</span>
+<span class="sd">        &gt;&gt;&gt; print (rm_punctuation(lang_mod, text))</span>
+<span class="sd">        I better have passed that test it is 90 percent of the class grade</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">]</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_text</span></div>
+
+
+<div class="viewcode-block" id="spacy_lemmatize"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.spacy_lemmatize.html#enlp.processing.stdtools.spacy_lemmatize">[docs]</a><span class="k">def</span> <span class="nf">spacy_lemmatize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return string of lemmatized text</span>
+
+<span class="sd">    Lemmatization is the process of reducing the different forms of a word to one single form, for example,</span>
+<span class="sd">    reducing &quot;builds&quot;, &quot;building&quot;, or &quot;built&quot; to the lemma &quot;build&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : :obj:`spacy.lang`</span>
+<span class="sd">        SpaCy language model</span>
+<span class="sd">    text : :obj:`str`</span>
+<span class="sd">        text string on which to remove stopwords</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        updated_text : :obj:`str`</span>
+<span class="sd">            Updated version of input string where words have been lemmatized</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    String output is to allow piping between functions to return words as a list use: to_list(lemmatize(...))</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; import spacy</span>
+<span class="sd">        &gt;&gt;&gt; lang_mod = spacy.load(&#39;nb_dep_ud_sm&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &#39;Den raske brune reven hoppet over den late hunden.&#39;</span>
+<span class="sd">        &gt;&gt;&gt; print (spacy_lemmatize(lang_mod,text))</span>
+<span class="sd">        &#39;den rask brun rev hoppe over den lat hund.&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">lemma_tx</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">text</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">lemma_</span> <span class="o">==</span> <span class="s1">&#39;-PRON-&#39;</span> <span class="k">else</span> <span class="n">t</span><span class="o">.</span><span class="n">lemma_</span>
+          <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+          <span class="p">]</span>
+
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lemma_tx</span><span class="p">)</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="n">retain_spaces</span><span class="p">(</span><span class="n">updated_text</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">updated_text</span></div>
+
+
+<div class="viewcode-block" id="nltk_stem_no"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.nltk_stem_no.html#enlp.processing.stdtools.nltk_stem_no">[docs]</a><span class="k">def</span> <span class="nf">nltk_stem_no</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return string of stemmed text using NLTK&#39;s Norwegian snowball stemmer</span>
+
+<span class="sd">    Stemming is a technique to remove affixes from a word, ending up with the stem.</span>
+<span class="sd">    For example, the stem of cooking is cook.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : :obj:`spacy.lang`</span>
+<span class="sd">        SpaCy language model</span>
+<span class="sd">    text : :obj:`str`</span>
+<span class="sd">        text string on which to remove stopwords</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        updated_text : :obj:`str`</span>
+<span class="sd">            Updated version of input string where words have been stemmed</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    String output is to allow piping between functions to return words as a list use: to_list(stem_norwegian(...))</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; import spacy</span>
+<span class="sd">        &gt;&gt;&gt; lang_mod = spacy.load(&#39;nb_dep_ud_sm&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &#39;Den raske brune reven hoppet over den late hunden.&#39;</span>
+<span class="sd">        &gt;&gt;&gt; print (nltk_stem_no(lang_mod,text))</span>
+<span class="sd">        den rask brun rev hopp over den lat hund.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;norwegian&quot;</span><span class="p">)</span>
+
+    <span class="n">stemmed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">model</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span>
+
+
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemmed_words</span><span class="p">)</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="n">retain_spaces</span><span class="p">(</span><span class="n">updated_text</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">updated_text</span></div>
+
+
+<div class="viewcode-block" id="tokenise"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.tokenise.html#enlp.processing.stdtools.tokenise">[docs]</a><span class="k">def</span> <span class="nf">tokenise</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return list of tokens for a piece of text.</span>
+
+<span class="sd">    A token is a string of contiguous characters between two spaces, or between a space and punctuation marks.</span>
+<span class="sd">    A token can also be an integer, real, or a number with a colon (time, for example: 2:00).</span>
+<span class="sd">    All other symbols are tokens themselves except apostrophes and quotation marks in a word (with no space),</span>
+<span class="sd">    which in many cases symbolize acronyms or citations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : :obj:`spacy.lang`</span>
+<span class="sd">        SpaCy language model</span>
+<span class="sd">    text : :obj:`str`</span>
+<span class="sd">        text string on which to remove stopwords</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        tokens : :obj:`list`</span>
+<span class="sd">            List of tokens, list is ordered as tokens appear in sentence.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; import spacy</span>
+<span class="sd">        &gt;&gt;&gt; lang_mod = spacy.load(&#39;nb_dep_ud_sm&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &#39;Den raske brune reven hoppet over den late hunden.&#39;</span>
+<span class="sd">        &gt;&gt;&gt; print (tokenise(lang_mod,text))</span>
+<span class="sd">        [&#39;Den&#39;, &#39;raske&#39;, &#39;brune&#39;, &#39;reven&#39;, &#39;hoppet&#39;, &#39;over&#39;, &#39;den&#39;, &#39;late&#39;, &#39;hunden&#39;, &#39;.&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">model</span><span class="p">(</span><span class="n">text</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">tokens</span></div>
+
+
+<div class="viewcode-block" id="retain_spaces"><a class="viewcode-back" href="../../../api/generated/enlp.processing.stdtools.retain_spaces.html#enlp.processing.stdtools.retain_spaces">[docs]</a><span class="k">def</span> <span class="nf">retain_spaces</span><span class="p">(</span><span class="n">processed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retaining spaces around punctuation at the end of a sentence</span>
+
+<span class="sd">    Function for use when joining tokens and wishing to retain original spacing around punctuation.</span>
+
+<span class="sd">    without function - lemma = &#39;the quick brown fox jump over the lazy dog .&#39;</span>
+
+<span class="sd">    with function - lemma = &#39;the quick brown fox jump over the lazy dog.&#39;</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    processed : :obj:`str`</span>
+<span class="sd">        processed text string</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        updated_text : :obj:`str`</span>
+<span class="sd">            updated processed sentence to ensure same spacing around symbols as in original</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Have only accounted for punctuation at the end of a sentence and not others, for example % or $ or # etc.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">        &gt;&gt;&gt; tokens = [&#39;Den&#39;, &#39;raske&#39;, &#39;brune&#39;, &#39;reven&#39;, &#39;hoppet&#39;, &#39;over&#39;, &#39;den&#39;, &#39;late&#39;, &#39;hunden&#39;, &#39;.&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; joined_tokens = &#39; &#39;.join(tokens)</span>
+<span class="sd">        &gt;&gt;&gt; print (&#39;Original: &#39;, joined_tokens)</span>
+<span class="sd">        &gt;&gt;&gt; print (&#39;Fixed spaces: &#39;, retain_spaces(joined_tokens))</span>
+<span class="sd">        Original:  Den raske brune reven hoppet over den late hunden .</span>
+<span class="sd">        Fixed spaces:  Den raske brune reven hoppet over den late hunden.</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">i_to_rm</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">char_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">processed</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">processed</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">processed</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+            <span class="n">i_to_rm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">i_to_rm</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">char_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="c1"># make new string removing blanks</span>
+    <span class="n">updated_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_text</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, Claire Birnie
+      <span class="lastupdated">
+        Last updated on Feb 24, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

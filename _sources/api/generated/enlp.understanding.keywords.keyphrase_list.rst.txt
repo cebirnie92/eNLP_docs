@@ -1,0 +1,12 @@
+enlp.understanding.keywords.keyphrase\_list
+===========================================
+
+.. currentmodule:: enlp.understanding.keywords
+
+.. autofunction:: keyphrase_list
+
+.. include:: backreferences/enlp.understanding.keywords.keyphrase_list.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

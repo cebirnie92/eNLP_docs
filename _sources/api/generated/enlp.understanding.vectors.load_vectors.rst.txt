@@ -1,0 +1,12 @@
+enlp.understanding.vectors.load\_vectors
+========================================
+
+.. currentmodule:: enlp.understanding.vectors
+
+.. autofunction:: load_vectors
+
+.. include:: backreferences/enlp.understanding.vectors.load_vectors.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
