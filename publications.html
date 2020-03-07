@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     
-        <title>eNLP &mdash; eNLP</title>
+        <title>Publications &mdash; eNLP</title>
     
 
 
@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Contributors" href="credits.html" />
     
     <script src="_static/require.js"></script>
 
@@ -58,7 +58,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> eNLP
+            <a href="index.html" class="icon icon-home"> eNLP
           
 
           
@@ -104,10 +104,10 @@
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">eNLP code documentation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Getting involved:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Publications</a></li>
 </ul>
 
             
@@ -138,7 +138,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">eNLP</a>
+          <a href="index.html">eNLP</a>
         
       </nav>
 
@@ -168,15 +168,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>eNLP</li>
+      <li>Publications</li>
     
     
     <li class="source-link">
         
             
-                <a href="https://github.com/Statoil/pylops/edit/master/docs/index.rst"
+                <a href="https://github.com/Statoil/pylops/edit/master/docs/publications.rst"
                    class="fa fa-github"> Improve this page</a>
             
         
@@ -215,71 +215,13 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="enlp">
-<h1>eNLP<a class="headerlink" href="#enlp" title="Permalink to this headline">¶</a></h1>
-<p>This python library is a collection of common Natural Language Processing functions ranging from processing to
-visualisation. The purpose of the package is to collect commonly used functions into a single location and provide a
-simple approach for processing and understanding of textual data.</p>
-<p>A number of example usages can be found in <a class="reference external" href="https://cebirnie92.github.io/eNLP_docs/examples/index.html">eNLP gallery</a>,
-whilst publications whose research used the package are detailed in the
-<a class="reference external" href="https://cebirnie92.github.io/eNLP_docs/publications.html">publications section</a></p>
-<div class="section" id="language-processing">
-<h2>Language Processing<a class="headerlink" href="#language-processing" title="Permalink to this headline">¶</a></h2>
-<p>The library has functions for basic language processing, some homemade functions, for example for punctuation removal,
-and other functions that leverage on the open-source packages of:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://nltk.readthedocs.io/en/latest/">NLTK</a></p></li>
-<li><p><a class="reference external" href="https://spacy.io/">spaCy</a></p></li>
+<div class="section" id="publications">
+<span id="id1"></span><h1>Publications<a class="headerlink" href="#publications" title="Permalink to this headline">¶</a></h1>
+<p>The following publications used eNLP as part of their data analysis:</p>
+<ul class="simple">
+<li><p>Birnie, C.E., Sampson, J., Sjaastad, E., Johansen, B., Obrestad, L.E., Larsen, R. and Khamassi, A., 2019, September. Improving the Quality and Efficiency of Operational Planning and Risk Management with ML and NLP. In SPE Offshore Europe Conference and Exhibition. Society of Petroleum Engineers.</p></li>
+<li><p>Birnie, C.E., Ravasi, M., 2020, Generating Custom Word Embeddings for Geoscientific Corpi. In First EAGE Digitalization Conference and Exhibition. European Association of Geoscientists and Engineers.</p></li>
 </ul>
-</div></blockquote>
-<p>These functions have been wrote such that they can be called individually or strung together to make a processing
-pipeline. For example, to remove punctuation and perform a lemmatization of the remaining tokens, an NLP pipeline can be
-set up as so,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enlp.pipeline</span> <span class="kn">import</span> <span class="n">NLPPipeline</span>
-<span class="kn">import</span> <span class="nn">spacy</span>
-
-<span class="n">langmodel</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_md&#39;</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Some exciting text to be processed - ensure the language matches the spacy model&quot;</span>
-
-<span class="n">processed_text</span> <span class="o">=</span> <span class="n">NLPPipeline</span><span class="p">(</span><span class="n">langmodel</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<span class="n">processed_text</span><span class="o">.</span><span class="n">rm_punctuation</span><span class="p">()</span><span class="o">.</span><span class="n">spacy_lemmatize</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>The processed  text can be accessed via</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">processed_text</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="understanding">
-<h2>Understanding<a class="headerlink" href="#understanding" title="Permalink to this headline">¶</a></h2>
-<p>The library also has a number of functions for language understanding, such as word vector creation, sentiment analysis,
-topic modelling and key word extraction. As well as the packages mentioned above, these functions leverage on the
-open-source packages of:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://gensim.readthedocs.io/en/latest/">gensim</a></p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a></p></li>
-<li><p><a class="reference external" href="https://csurfer.github.io/rake-nltk/_build/html/index.html">rake-nltk</a></p></li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="visualisation">
-<h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">¶</a></h2>
-<p>Finally, functions are provided for visualisation - bar plots for visualisation alongside commonly used word clouds. As
-well as the packages mentioned above, these functions leverage on the open-source packages of:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://amueller.github.io/word_cloud/index.html">wordcloud</a></p></li>
-</ul>
-</div></blockquote>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</div>
 </div>
 
 
@@ -290,8 +232,8 @@ well as the packages mentioned above, these functions leverage on the open-sourc
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="credits.html" class="btn btn-neutral float-left" title="Contributors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
